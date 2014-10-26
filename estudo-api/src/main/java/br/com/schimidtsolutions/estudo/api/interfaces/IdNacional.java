@@ -1,4 +1,4 @@
-package br.com.schimidtsolutions.estudo.ejb.interfaces;
+package br.com.schimidtsolutions.estudo.api.interfaces;
 
 public interface IdNacional {
 

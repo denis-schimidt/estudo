@@ -1,11 +1,11 @@
-package br.com.schimidtsolutions.estudo.ejb.validator;
+package br.com.schimidtsolutions.estudo.api.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraintvalidation.SupportedValidationTarget;
 import javax.validation.constraintvalidation.ValidationTarget;
 
-import br.com.schimidtsolutions.estudo.ejb.annotations.CPFConsistente;
+import br.com.schimidtsolutions.estudo.api.annotations.CPFConsistente;
 
 @SupportedValidationTarget(value = ValidationTarget.PARAMETERS)
 public class CPFValidator implements ConstraintValidator<CPFConsistente, Object[]>{
@@ -22,12 +22,10 @@ public class CPFValidator implements ConstraintValidator<CPFConsistente, Object[
 	    if (result) {
 	        return true;
 	    }
-
-	    String msgDefault = context.getDefaultConstraintMessageTemplate();
-	    String msgFormatada = String.format(msgDefault, "Erro");
-
+	    
 	    context.disableDefaultConstraintViolation();
-	    context.buildConstraintViolationWithTemplate(msgFormatada).addConstraintViolation();
+	    context.buildConstraintViolationWithTemplate( context.getDefaultConstraintMessageTemplate() )
+	    	.addConstraintViolation();
 	    
 	    return false;
 	}

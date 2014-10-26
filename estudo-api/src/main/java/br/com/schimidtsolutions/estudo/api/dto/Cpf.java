@@ -1,14 +1,14 @@
-package br.com.schimidtsolutions.estudo.ejb.dto;
+package br.com.schimidtsolutions.estudo.api.dto;
 
-import br.com.schimidtsolutions.estudo.ejb.annotations.MeuNotNull;
-import br.com.schimidtsolutions.estudo.ejb.interfaces.IdNacional;
+import br.com.schimidtsolutions.estudo.api.annotations.CPFConsistente;
+import br.com.schimidtsolutions.estudo.api.interfaces.IdNacional;
 
 public class Cpf implements IdNacional {
 	private Long base;
 	private Short digito;
 
-	
-	public Cpf( @MeuNotNull final Long base, final Short digito) {
+	@CPFConsistente
+	public Cpf( final Long base, final Short digito) {
 		this.base = base;
 		this.digito = digito;
 	}

@@ -1,8 +1,8 @@
-package br.com.schimidtsolutions.estudo.ejb.dto;
+package br.com.schimidtsolutions.estudo.api.dto;
 
 import java.time.LocalDate;
 
-import br.com.schimidtsolutions.estudo.ejb.interfaces.IdNacional;
+import br.com.schimidtsolutions.estudo.api.interfaces.IdNacional;
 
 public class PessoaFisica extends Pessoa {
 	private final String nome;

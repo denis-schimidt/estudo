@@ -1,4 +1,4 @@
-package br.com.schimidtsolutions.estudo.ejb.annotations;
+package br.com.schimidtsolutions.estudo.api.annotations;
  
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import br.com.schimidtsolutions.estudo.ejb.validator.CPFValidator;
+import br.com.schimidtsolutions.estudo.api.validator.CPFValidator;
 
 @Documented
 @Target({CONSTRUCTOR, PARAMETER})
@@ -18,7 +18,7 @@ import br.com.schimidtsolutions.estudo.ejb.validator.CPFValidator;
 @Constraint(validatedBy=CPFValidator.class)
 
 public @interface CPFConsistente {
-	 String message() default "Erro";
+	 String message() default "{cpf.validation.message}";
 	 Class<?>[] groups() default {};
 	 Class<? extends Payload>[] payload() default {};
 }

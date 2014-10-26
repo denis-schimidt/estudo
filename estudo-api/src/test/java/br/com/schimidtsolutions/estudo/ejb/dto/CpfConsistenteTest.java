@@ -15,6 +15,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.com.schimidtsolutions.estudo.api.dto.Cpf;
+
 public class CpfConsistenteTest {
 	private static ValidatorFactory vf;
 	private static Validator validator;
@@ -37,5 +39,6 @@ public class CpfConsistenteTest {
 		ExecutableValidator methodValidator = validator.forExecutables();
 		Set<ConstraintViolation<Cpf>> violations = methodValidator.validateConstructorParameters(constructor, new Object[]{null,null});
 		assertEquals(1, violations.size());
+		System.out.println( violations.toString() );
 	}
 }

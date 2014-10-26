@@ -1,9 +1,9 @@
-package br.com.schimidtsolutions.estudo.ejb.validator;
+package br.com.schimidtsolutions.estudo.api.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import br.com.schimidtsolutions.estudo.ejb.annotations.MeuNotNull;
+import br.com.schimidtsolutions.estudo.api.annotations.MeuNotNull;
 
 public class MeuNotNullValidator implements ConstraintValidator<MeuNotNull, Object> {
 	private boolean ativado;

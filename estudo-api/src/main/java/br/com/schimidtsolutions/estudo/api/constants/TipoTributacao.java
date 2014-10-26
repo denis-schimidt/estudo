@@ -1,4 +1,4 @@
-package br.com.schimidtsolutions.estudo.ejb.constants;
+package br.com.schimidtsolutions.estudo.api.constants;
 
 public enum TipoTributacao {
 	SIMPLES_NACIONAL, LUCRO_PRESUMIDO;

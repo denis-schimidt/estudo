@@ -1,6 +1,6 @@
-package br.com.schimidtsolutions.estudo.ejb.dto;
+package br.com.schimidtsolutions.estudo.api.dto;
 
-import br.com.schimidtsolutions.estudo.ejb.interfaces.IdNacional;
+import br.com.schimidtsolutions.estudo.api.interfaces.IdNacional;
 
 public abstract class Pessoa {
 	private final IdNacional idNacional;

@@ -5,7 +5,9 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import br.com.schimidtsolutions.estudo.ejb.interfaces.IdNacional;
+import br.com.schimidtsolutions.estudo.api.dto.Cnpj;
+import br.com.schimidtsolutions.estudo.api.dto.Cpf;
+import br.com.schimidtsolutions.estudo.api.interfaces.IdNacional;
 
 public class IdNacionalTest {
 
