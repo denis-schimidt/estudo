@@ -2,6 +2,7 @@ package br.com.schimidtsolutions.estudo.api.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import javax.validation.ConstraintValidatorContext.ConstraintViolationBuilder;
 import javax.validation.constraintvalidation.SupportedValidationTarget;
 import javax.validation.constraintvalidation.ValidationTarget;
 
@@ -12,7 +13,7 @@ public class CPFValidator implements ConstraintValidator<CPFConsistente, Object[
 
 	@Override
 	public void initialize(CPFConsistente annotation) {
-		System.out.println( "Entrou aqui..." );
+		System.out.println( "Inicializando CPFValidator..." );
 	}
 
 	@Override
@@ -24,8 +25,10 @@ public class CPFValidator implements ConstraintValidator<CPFConsistente, Object[
 	    }
 	    
 	    context.disableDefaultConstraintViolation();
-	    context.buildConstraintViolationWithTemplate( context.getDefaultConstraintMessageTemplate() )
-	    	.addConstraintViolation();
+	    ConstraintViolationBuilder buildConstraint = 
+	    		context.buildConstraintViolationWithTemplate( context.getDefaultConstraintMessageTemplate() );
+	    
+	    buildConstraint.addConstraintViolation();
 	    
 	    return false;
 	}

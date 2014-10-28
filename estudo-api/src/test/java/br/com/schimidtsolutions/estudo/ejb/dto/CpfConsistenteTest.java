@@ -16,14 +16,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.schimidtsolutions.estudo.api.dto.Cpf;
+import br.com.schimidtsolutions.estudo.api.validator.CPFMessageInterpolator;
 
 public class CpfConsistenteTest {
 	private static ValidatorFactory vf;
 	private static Validator validator;
 
 	@BeforeClass
-	public static void init() {
-		vf = Validation.buildDefaultValidatorFactory();
+	public static void init() {		
+		vf = Validation.byDefaultProvider().configure().messageInterpolator( new CPFMessageInterpolator() ).buildValidatorFactory();
+		//vf = Validation.buildDefaultValidatorFactory();
 		validator = vf.getValidator();
 	}
  
@@ -37,7 +39,7 @@ public class CpfConsistenteTest {
 	public void testCpfPeloConstrutorInvalido() throws NoSuchMethodException, SecurityException {
 		Constructor<Cpf> constructor = Cpf.class.getConstructor( Long.class, Short.class );
 		ExecutableValidator methodValidator = validator.forExecutables();
-		Set<ConstraintViolation<Cpf>> violations = methodValidator.validateConstructorParameters(constructor, new Object[]{null,null});
+		Set<ConstraintViolation<Cpf>> violations = methodValidator.validateConstructorParameters(constructor, new Object[]{264081968L, (short) 29});
 		assertEquals(1, violations.size());
 		System.out.println( violations.toString() );
 	}

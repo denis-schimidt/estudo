@@ -17,6 +17,11 @@ public class Cpf implements IdNacional {
 	public String getIdFormatado() {
 		return String.format( "%,d-%02d", base, digito );
 	}
+	
+	@Override
+	public String toString() {
+		return "Cpf [base=" + base + ", digito=" + digito + "]";
+	}
 
 	@Override
 	public Long getIdComoNumero() {
